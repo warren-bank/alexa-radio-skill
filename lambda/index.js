@@ -2,8 +2,24 @@
 /* eslint-disable  func-names */
 /* eslint-disable  no-console */
 
-const Alexa = require('ask-sdk-core');
-const BASE_URL = "https://alexaradio.vercel.app";
+// ==============
+// configuration:
+// ==============
+
+const BASE_URL  = "https://alexaradio.vercel.app"
+const LOG_LEVEL = 0
+
+// =============================
+// do NOT edit beyond this line:
+// =============================
+
+const Alexa = require('ask-sdk-core')
+
+const console_log = (...args) => {
+  if (LOG_LEVEL > 0) {
+    console.log(...args)
+  }
+}
 
 const PlayMediaIntentHandler = {
   canHandle(handlerInput) {
@@ -13,7 +29,6 @@ const PlayMediaIntentHandler = {
         handlerInput.requestEnvelope.request.intent.name === 'PlayMediaIntent'
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent'
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.LoopOnIntent'
-        // || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.NextIntent'
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PreviousIntent'
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.RepeatIntent'
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ShuffleOnIntent'
@@ -23,18 +38,18 @@ const PlayMediaIntentHandler = {
   async handle(handlerInput) {
 
     const slotValue = Alexa.getSlotValue(handlerInput.requestEnvelope, 'SEARCH_TERM');
-        
-    let track = await getRemoteData("?search="+slotValue)
-    let outputSpeech = "Now playing " + track.name;
-    if (track.speech) {
-        outputSpeech = track.speech + " " + track.name
-    }
 
-    let playBehavior = 'REPLACE_ALL';
-    let streamUrl = track.url;
-    let offsetInMilliseconds = track.offset || 0;
-    let token = `${track.channel}::${track.name}`
-    
+    const remoteData   = await getRemoteData("?search="+slotValue)
+    const track        = remoteData.track
+    const outputSpeech = (remoteData.speech)
+      ? `${remoteData.speech} ${track.name}`
+      : `Now playing ${track.name}`
+
+    const playBehavior         = 'REPLACE_ALL'
+    const streamUrl            = track.url
+    const token                = `${track.channel}::${track.name}`
+    const offsetInMilliseconds = track.offset || 0
+
     return handlerInput.responseBuilder
         .speak(outputSpeech)
         .addAudioPlayerPlayDirective(
@@ -42,43 +57,10 @@ const PlayMediaIntentHandler = {
             streamUrl,
             token,
             offsetInMilliseconds
-            )
+        )
         .getResponse();
   },
 };
-
-// const PlayMediaIntentHandler = {
-//     canHandle(handlerInput) {
-//         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-//             && handlerInput.requestEnvelope.request.intent.name === 'PlayMediaIntent'
-//             || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent';
-//     },
-//     async handle(handlerInput) {
-
-//         const slotValue = Alexa.getSlotValue(handlerInput.requestEnvelope, 'SEARCH_TERM');
-        
-//         let res = await getRemoteData("?search="+slotValue)
-//         let track = JSON.parse(res);
-        
-//         // let outputSpeech = await getRemoteData("?now_playing="+track);
-//         let outputSpeech = "Now playing " + track.name;
-
-//         let playBehavior = 'REPLACE_ALL';
-//         let streamUrl = track.url;
-//         let offsetInMilliseconds = track.offset || 0;
-//         let token = `${track.channel}::${track.name}`
-        
-//         return handlerInput.responseBuilder
-//             .speak(outputSpeech)
-//             .addAudioPlayerPlayDirective(
-//                 playBehavior,
-//                 streamUrl,
-//                 token,
-//                 offsetInMilliseconds
-//                 )
-//             .getResponse();
-//   }
-// };
 
 const HelpIntentHandler = {
   canHandle(handlerInput) {
@@ -122,14 +104,15 @@ const CancelAndStopIntentHandler = {
       );
   },
   async handle(handlerInput) {
-    let token = handlerInput.requestEnvelope.context.AudioPlayer.token;
-    let offset = handlerInput.requestEnvelope.context.AudioPlayer.offsetInMilliseconds;
-    
-    // console.log("token", token, offset, handlerInput.requestEnvelope)
-    
-    let res = await getRemoteData("?stop="+token+"&offset="+offset)
+    const token  = handlerInput.requestEnvelope.context.AudioPlayer.token
+    const offset = handlerInput.requestEnvelope.context.AudioPlayer.offsetInMilliseconds
+
+    console_log("token", token, offset, handlerInput.requestEnvelope)
+
+    const remoteData = await getRemoteData(`?stop=${token}&offset=${offset}`)
+
     handlerInput.responseBuilder
-      .speak(res.speech)
+      .speak(remoteData.speech)
       .addAudioPlayerClearQueueDirective('CLEAR_ALL')
       .addAudioPlayerStopDirective();
 
@@ -159,18 +142,18 @@ const NextIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NextIntent';
     },
     async handle(handlerInput) {
-        
-        let track = await getRemoteData("?queue="+handlerInput.requestEnvelope.context.AudioPlayer.token)
-        console.log("track", track)
-        let outputSpeech = "Next is " + track.name;
-        if (track.speech) {
-            outputSpeech = track.speech + " " + track.name
-        }
+        const remoteData   = await getRemoteData("?queue="+handlerInput.requestEnvelope.context.AudioPlayer.token)
+        const track        = remoteData.track
+        const outputSpeech = (remoteData.speech)
+          ? `${remoteData.speech} ${track.name}`
+          : `Now playing ${track.name}`
 
-        let playBehavior = 'REPLACE_ALL';
-        let streamUrl = track.url;
-        let offsetInMilliseconds = track.offset || 0;
-        let token = `${track.channel}::${track.station}`
+        console_log("track", track)
+
+        const playBehavior         = 'REPLACE_ALL'
+        const streamUrl            = track.url
+        const token                = `${track.channel}::${track.station}`
+        const offsetInMilliseconds = track.offset || 0
         
         return handlerInput.responseBuilder
             .speak(outputSpeech)
@@ -178,9 +161,8 @@ const NextIntentHandler = {
                 playBehavior,
                 streamUrl,
                 token,
-                offsetInMilliseconds,
-                // handlerInput.requestEnvelope.request.token
-                )
+                offsetInMilliseconds
+            )
             .getResponse();
     }
 };
@@ -193,7 +175,7 @@ const AudioPlayerEventHandler = {
     // const playbackInfo = await getPlaybackInfo(handlerInput);
     
     const audioPlayerEventName = handlerInput.requestEnvelope.request.type.split('.')[1];
-    console.log(`AudioPlayer event encountered: ${handlerInput.requestEnvelope.request.type}`);
+    console_log(`AudioPlayer event encountered: ${handlerInput.requestEnvelope.request.type}`);
     let returnResponseFlag = false;
     switch (audioPlayerEventName) {
       case 'PlaybackStarted':
@@ -214,14 +196,14 @@ const AudioPlayerEventHandler = {
         // playbackInfo.offsetInMilliseconds = handlerInput.requestEnvelope.request.offsetInMilliseconds;
         break;
       case 'PlaybackNearlyFinished':
-        let expectedPreviousToken = handlerInput.requestEnvelope.request.token;
-        let track = await getRemoteData("?queue="+expectedPreviousToken)
-        // let track = JSON.parse(res);
-        
-        let token = `${track.channel}::${track.name}`
-        let offsetInMilliseconds = 0;
+        const expectedPreviousToken = handlerInput.requestEnvelope.request.token
+        const remoteData            = await getRemoteData("?queue="+expectedPreviousToken)
+        const track                 = remoteData.track
+        const token                 = `${track.channel}::${track.name}`
+        const offsetInMilliseconds  = 0
 
-        console.log('PlaybackNearlyFinished', track)
+        console_log('PlaybackNearlyFinished', track)
+
         handlerInput.responseBuilder
             .addAudioPlayerPlayDirective(
                 "ENQUEUE",
@@ -229,12 +211,11 @@ const AudioPlayerEventHandler = {
                 token,
                 offsetInMilliseconds,
                 expectedPreviousToken
-                )
+            )
         break;
       case 'PlaybackFailed':
         // playbackInfo.inPlaybackSession = false;
-        console.log('Playback Failed : %j', handlerInput.requestEnvelope.request);
-        // console.log('Playback Failed : %j', handlerInput.requestEnvelope.request);
+        console_log('Playback Failed : %j', handlerInput.requestEnvelope.request);
         break;
       default:
         break;
@@ -249,7 +230,7 @@ const SessionEndedRequestHandler = {
     return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
   },
   handle(handlerInput) {
-    console.log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
+    console_log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
 
     return handlerInput.responseBuilder
       .getResponse();
@@ -261,7 +242,7 @@ const ExceptionEncounteredRequestHandler = {
     return handlerInput.requestEnvelope.request.type === 'System.ExceptionEncountered';
   },
   handle(handlerInput) {
-    console.log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
+    console_log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
 
     return true;
   },
@@ -273,7 +254,8 @@ const ErrorHandler = {
   },
   handle(handlerInput, error) {
     console.log(`Error handled: ${error}`);
-    console.log(handlerInput.requestEnvelope);
+    console_log(handlerInput.requestEnvelope);
+
     return handlerInput.responseBuilder
       .getResponse();
   },
@@ -297,9 +279,7 @@ const getRemoteData = (val) => new Promise((resolve, reject) => {
   request.on('error', (err) => reject(err));
 });
 
-const skillBuilder = Alexa.SkillBuilders.custom();
-
-exports.handler = skillBuilder
+exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     PlayMediaIntentHandler,
     NextIntentHandler,
