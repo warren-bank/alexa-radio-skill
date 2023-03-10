@@ -11,6 +11,15 @@ const LOG_LEVEL = 0
 
 const Alexa = require('ask-sdk-core')
 
+const getRequestData = (handlerInput) => {
+  const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
+  const reqName = (reqType === 'IntentRequest')
+    ? Alexa.getIntentName(handlerInput.requestEnvelope)
+    : null
+
+  return [reqType, reqName]
+}
+
 const getRemoteData = (val) => new Promise((resolve, reject) => {
   const url     = BASE_URL + '/api/radio' + val
   const client  = url.startsWith('https') ? require('https') : require('http')
@@ -40,8 +49,7 @@ const intent_handler = {}
 
 intent_handler['launch'] = {
   canHandle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
-    const reqName = Alexa.getIntentName(handlerInput.requestEnvelope)
+    const [reqType, reqName] = getRequestData(handlerInput)
 
     return (
          (reqType === 'LaunchRequest')
@@ -81,8 +89,7 @@ intent_handler['launch'] = {
 
 intent_handler['search'] = {
   canHandle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
-    const reqName = Alexa.getIntentName(handlerInput.requestEnvelope)
+    const [reqType, reqName] = getRequestData(handlerInput)
 
     return (
          (reqType === 'IntentRequest')
@@ -121,8 +128,7 @@ intent_handler['search'] = {
 
 intent_handler['stop'] = {
   canHandle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
-    const reqName = Alexa.getIntentName(handlerInput.requestEnvelope)
+    const [reqType, reqName] = getRequestData(handlerInput)
 
     return (
          (reqType === 'PlaybackController.PauseCommandIssued')
@@ -157,8 +163,7 @@ intent_handler['stop'] = {
 
 intent_handler['next'] = {
   canHandle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
-    const reqName = Alexa.getIntentName(handlerInput.requestEnvelope)
+    const [reqType, reqName] = getRequestData(handlerInput)
 
     return (
          (reqType === 'IntentRequest')
@@ -205,8 +210,7 @@ intent_handler['next'] = {
 
 intent_handler['help'] = {
   canHandle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
-    const reqName = Alexa.getIntentName(handlerInput.requestEnvelope)
+    const [reqType, reqName] = getRequestData(handlerInput)
 
     return (
          (reqType === 'IntentRequest')
@@ -227,8 +231,7 @@ intent_handler['help'] = {
 
 intent_handler['about'] = {
   canHandle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
-    const reqName = Alexa.getIntentName(handlerInput.requestEnvelope)
+    const [reqType, reqName] = getRequestData(handlerInput)
 
     return (
          (reqType === 'IntentRequest')
@@ -249,13 +252,12 @@ intent_handler['about'] = {
 
 intent_handler['AudioPlayer'] = {
   canHandle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
-    const reqName = Alexa.getIntentName(handlerInput.requestEnvelope)
+    const [reqType, reqName] = getRequestData(handlerInput)
 
     return reqType.startsWith('AudioPlayer.')
   },
   async handle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
+    const [reqType] = getRequestData(handlerInput)
 
     console_log('[AudioPlayer] event:', reqType)
 
@@ -303,8 +305,7 @@ intent_handler['AudioPlayer'] = {
 
 intent_handler['end-session'] = {
   canHandle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
-    const reqName = Alexa.getIntentName(handlerInput.requestEnvelope)
+    const [reqType, reqName] = getRequestData(handlerInput)
 
     return (reqType === 'SessionEndedRequest')
   },
@@ -320,8 +321,7 @@ intent_handler['end-session'] = {
 
 intent_handler['system-exception'] = {
   canHandle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
-    const reqName = Alexa.getIntentName(handlerInput.requestEnvelope)
+    const [reqType, reqName] = getRequestData(handlerInput)
 
     return (reqType === 'System.ExceptionEncountered')
   },
@@ -334,8 +334,7 @@ intent_handler['system-exception'] = {
 
 intent_handler['unsupported'] = {
   canHandle(handlerInput) {
-    const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
-    const reqName = Alexa.getIntentName(handlerInput.requestEnvelope)
+    const [reqType, reqName] = getRequestData(handlerInput)
 
     return (
          (reqType === 'IntentRequest')
