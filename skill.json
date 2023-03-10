@@ -17,8 +17,8 @@
           ],
           "name": "Juke Box",
           "description": "The Alexa Skill lets you create and customize a personal playlist of audio streams that you can access and listen to through voice commands on your Amazon device. The playlist can be easily managed through a web page, where you can add new audio streams, edit or delete existing ones, and organize them in any order you like. Whether you want to listen to your favorite music, podcasts, or live radio broadcasts, this Skill makes it convenient and easy to access your audio content whenever you want. Simply ask Alexa to play your playlist, skip to the next track, or pause the audio at any time.",
-          "smallIconUri": "file://assets/images/en-CA_smallIconUri.png",
-          "largeIconUri": "file://assets/images/en-CA_largeIconUri.png"
+          "smallIconUri": "https://github.com/warren-bank/alexa-radio-skill/raw/alexa-aws-lambda/assets/images/icon_108px.png",
+          "largeIconUri": "https://github.com/warren-bank/alexa-radio-skill/raw/alexa-aws-lambda/assets/images/icon_512px.png"
         },
         "en-US": {
           "summary": "The Alexa Skill allows you to customize and manage a personal playlist of audio streams through a web page and listen to them.",
@@ -35,8 +35,8 @@
           ],
           "name": "Juke Box",
           "description": "The Alexa Skill lets you create and customize a personal playlist of audio streams that you can access and listen to through voice commands on your Amazon device. The playlist can be easily managed through a web page, where you can add new audio streams, edit or delete existing ones, and organize them in any order you like. Whether you want to listen to your favorite music, podcasts, or live radio broadcasts, this Skill makes it convenient and easy to access your audio content whenever you want. Simply ask Alexa to play your playlist, skip to the next track, or pause the audio at any time.",
-          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
-          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
+          "smallIconUri": "https://github.com/warren-bank/alexa-radio-skill/raw/alexa-aws-lambda/assets/images/icon_108px.png",
+          "largeIconUri": "https://github.com/warren-bank/alexa-radio-skill/raw/alexa-aws-lambda/assets/images/icon_512px.png"
         },
         "en-IN": {
           "summary": "The Alexa Skill allows you to customize and manage a personal playlist of audio streams through a web page and listen to them.",
@@ -53,8 +53,8 @@
           ],
           "name": "Juke Box",
           "description": "The Alexa Skill lets you create and customize a personal playlist of audio streams that you can access and listen to through voice commands on your Amazon device. The playlist can be easily managed through a web page, where you can add new audio streams, edit or delete existing ones, and organize them in any order you like. Whether you want to listen to your favorite music, podcasts, or live radio broadcasts, this Skill makes it convenient and easy to access your audio content whenever you want. Simply ask Alexa to play your playlist, skip to the next track, or pause the audio at any time.",
-          "smallIconUri": "file://assets/images/en-IN_smallIconUri.png",
-          "largeIconUri": "file://assets/images/en-IN_largeIconUri.png"
+          "smallIconUri": "https://github.com/warren-bank/alexa-radio-skill/raw/alexa-aws-lambda/assets/images/icon_108px.png",
+          "largeIconUri": "https://github.com/warren-bank/alexa-radio-skill/raw/alexa-aws-lambda/assets/images/icon_512px.png"
         },
         "en-AU": {
           "summary": "The Alexa Skill allows you to customize and manage a personal playlist of audio streams through a web page and listen to them.",
@@ -71,8 +71,8 @@
           ],
           "name": "Juke Box",
           "description": "The Alexa Skill lets you create and customize a personal playlist of audio streams that you can access and listen to through voice commands on your Amazon device. The playlist can be easily managed through a web page, where you can add new audio streams, edit or delete existing ones, and organize them in any order you like. Whether you want to listen to your favorite music, podcasts, or live radio broadcasts, this Skill makes it convenient and easy to access your audio content whenever you want. Simply ask Alexa to play your playlist, skip to the next track, or pause the audio at any time.",
-          "smallIconUri": "file://assets/images/en-AU_smallIconUri.png",
-          "largeIconUri": "file://assets/images/en-AU_largeIconUri.png"
+          "smallIconUri": "https://github.com/warren-bank/alexa-radio-skill/raw/alexa-aws-lambda/assets/images/icon_108px.png",
+          "largeIconUri": "https://github.com/warren-bank/alexa-radio-skill/raw/alexa-aws-lambda/assets/images/icon_512px.png"
         },
         "en-GB": {
           "summary": "The Alexa Skill allows you to customize and manage a personal playlist of audio streams through a web page and listen to them.",
@@ -89,8 +89,8 @@
           ],
           "name": "Juke Box",
           "description": "The Alexa Skill lets you create and customize a personal playlist of audio streams that you can access and listen to through voice commands on your Amazon device. The playlist can be easily managed through a web page, where you can add new audio streams, edit or delete existing ones, and organize them in any order you like. Whether you want to listen to your favorite music, podcasts, or live radio broadcasts, this Skill makes it convenient and easy to access your audio content whenever you want. Simply ask Alexa to play your playlist, skip to the next track, or pause the audio at any time.",
-          "smallIconUri": "file://assets/images/en-GB_smallIconUri.png",
-          "largeIconUri": "file://assets/images/en-GB_largeIconUri.png"
+          "smallIconUri": "https://github.com/warren-bank/alexa-radio-skill/raw/alexa-aws-lambda/assets/images/icon_108px.png",
+          "largeIconUri": "https://github.com/warren-bank/alexa-radio-skill/raw/alexa-aws-lambda/assets/images/icon_512px.png"
         }
       },
       "automaticDistribution": {
