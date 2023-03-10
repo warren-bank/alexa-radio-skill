@@ -1,0 +1,37 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": ""
+        },
+        "interfaces": [
+          {
+            "type": "AUDIO_PLAYER"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "category": "MUSIC_AND_AUDIO_ACCESSORIES",
+      "distributionCountries": [],
+      "isAvailableWorldwide": true,
+      "locales": {
+        "en-US": {
+          "examplePhrases": [
+            "Alexa ask Juke Box to play channel",
+            "Alexa ask Juke Box to play station",
+          ],
+          "keywords": [],
+          "name": "Juke Box",
+          "summary":     "Alexa Skill that uses the 'www' JSON API to query URLs for audio streams from custom playlists that are managed through a web interface. Uses the AudioPlayer interface.",
+          "description": "Alexa Skill that uses the 'www' JSON API to query URLs for audio streams from custom playlists that are managed through a web interface. Uses the AudioPlayer interface.",
+          "smallIconUri": "file://assets/images/en-US_smallIcon.png",
+          "largeIconUri": "file://assets/images/en-US_largeIcon.png"
+        }
+      },
+      "testingInstructions": "Sample Testing Instructions."
+    }
+  }
+}
