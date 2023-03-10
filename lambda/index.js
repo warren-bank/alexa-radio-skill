@@ -47,6 +47,17 @@ const intent_handler = {}
 
 // -----------------------------------------------------------------------------
 
+intent_handler['logger'] = {
+  canHandle(handlerInput) {
+    console_log('[logger] request:', ...getRequestData(handlerInput))
+    return false
+  },
+  handle(handlerInput) {
+  }
+}
+
+// -----------------------------------------------------------------------------
+
 intent_handler['launch'] = {
   canHandle(handlerInput) {
     const [reqType, reqName] = getRequestData(handlerInput)
@@ -366,6 +377,7 @@ const ErrorHandler = {
   },
   handle(handlerInput, error) {
     console.log('Error handled: %j', error)
+    console_log('Failed request:', ...getRequestData(handlerInput))
     console_log('Failed request: %j', handlerInput.requestEnvelope.request)
 
     const outputSpeech = 'Sorry, I had trouble doing what you asked. Please try again.'
@@ -381,6 +393,7 @@ const ErrorHandler = {
 
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
+    intent_handler['logger'],
     intent_handler['launch'],
     intent_handler['search'],
     intent_handler['stop'],
