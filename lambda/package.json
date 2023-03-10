@@ -1,11 +1,9 @@
 {
   "name": "alexa-radio-skill",
   "version": "1.5.0",
-  "description": "alexa utility for quickly building skills",
+  "private": true,
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Alexa Skill that uses the 'www' JSON API to query URLs for audio streams from custom playlists that are managed through a web interface.",
   "author": "bal simpson",
   "license": "Apache License",
   "dependencies": {

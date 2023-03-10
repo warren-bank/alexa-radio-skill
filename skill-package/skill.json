@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": ""
+          "uri": "arn:aws:lambda:location:IAM_CODE:function:aws_lambda_function_title"
         },
         "interfaces": [
           {
@@ -21,11 +21,11 @@
         "en-US": {
           "examplePhrases": [
             "Alexa ask Juke Box to play channel",
-            "Alexa ask Juke Box to play station",
+            "Alexa ask Juke Box to play station"
           ],
-          "keywords": [],
-          "name": "Juke Box",
-          "summary":     "Alexa Skill that uses the 'www' JSON API to query URLs for audio streams from custom playlists that are managed through a web interface. Uses the AudioPlayer interface.",
+          "keywords":    [],
+          "name":        "Juke Box",
+          "summary":     "Alexa Skill that uses the 'www' JSON API to query URLs for audio streams from custom playlists that are managed through a web interface.",
           "description": "Alexa Skill that uses the 'www' JSON API to query URLs for audio streams from custom playlists that are managed through a web interface. Uses the AudioPlayer interface.",
           "smallIconUri": "file://assets/images/en-US_smallIcon.png",
           "largeIconUri": "file://assets/images/en-US_largeIcon.png"

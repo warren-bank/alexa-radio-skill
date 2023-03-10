@@ -2,7 +2,7 @@
 // configuration:
 // ==============
 
-const BASE_URL  = "https://alexaradio.vercel.app"
+const BASE_URL  = 'https://alexaradio.vercel.app'
 const LOG_LEVEL = 0
 
 // =============================
@@ -355,7 +355,7 @@ intent_handler['unsupported'] = {
 
     return handlerInput.responseBuilder
       .speak(outputSpeech)
-      .getResponse();
+      .getResponse()
   }
 }
 
