@@ -40,10 +40,11 @@
             }
           ],
           "samples": [
-            "for {SEARCH_TERM}",
-            "to find {SEARCH_TERM}",
-            "to play {SEARCH_TERM}",
-            "to read {SEARCH_TERM}"
+            "play {SEARCH_TERM}",
+            "stream {SEARCH_TERM}",
+            "read {SEARCH_TERM}",
+            "find {SEARCH_TERM}",
+            "search for {SEARCH_TERM}"
           ]
         }
       ],
