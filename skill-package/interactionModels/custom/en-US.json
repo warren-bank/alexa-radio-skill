@@ -32,20 +32,8 @@
           "samples": []
         },
         {
-          "name": "PlayMediaIntent",
-          "slots": [
-            {
-              "name": "SEARCH_TERM",
-              "type": "AMAZON.RadioChannel"
-            }
-          ],
-          "samples": [
-            "to play {SEARCH_TERM}",
-            "for {SEARCH_TERM}",
-            "play {SEARCH_TERM}",
-            "play some {SEARCH_TERM}",
-            "read me {SEARCH_TERM}"
-          ]
+          "name": "AMAZON.ChooseAction<object@MusicPlaylist>",
+          "samples": []
         }
       ],
       "types": []

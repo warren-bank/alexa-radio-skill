@@ -104,11 +104,11 @@ intent_handler['search'] = {
 
     return (
          (reqType === 'IntentRequest')
-      && (reqName === 'PlayMediaIntent')
+      && (reqName === 'AMAZON.ChooseAction<object@MusicPlaylist>')
     )
   },
   async handle(handlerInput) {
-    const slotValue    = Alexa.getSlotValue(handlerInput.requestEnvelope, 'SEARCH_TERM')
+    const slotValue    = Alexa.getSlotValue(handlerInput.requestEnvelope, 'object.name')
     const remoteData   = await getRemoteData(`?search=${ encodeURIComponent(slotValue) }`)
     const track        = remoteData.track
     const outputSpeech = (remoteData.speech)
