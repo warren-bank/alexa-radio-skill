@@ -32,8 +32,19 @@
           "samples": []
         },
         {
-          "name": "AMAZON.ChooseAction<object@MusicPlaylist>",
-          "samples": []
+          "name": "PlayMediaIntent",
+          "slots": [
+            {
+              "name": "SEARCH_TERM",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "for {SEARCH_TERM}",
+            "to find {SEARCH_TERM}",
+            "to play {SEARCH_TERM}",
+            "to read {SEARCH_TERM}"
+          ]
         }
       ],
       "types": []
