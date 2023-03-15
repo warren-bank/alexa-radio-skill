@@ -36,7 +36,7 @@
           "slots": [
             {
               "name": "SEARCH_TERM",
-              "type": "SEARCH_TERM"
+              "type": "SEARCH_TERM_TYPE"
             }
           ],
           "samples": [
@@ -50,7 +50,7 @@
       ],
       "types": [
         {
-          "name": "SEARCH_TERM",
+          "name": "SEARCH_TERM_TYPE",
           "values": []
         }
       ]
