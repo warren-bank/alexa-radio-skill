@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "juke box",
+      "invocationName": "my juke box",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -36,7 +36,7 @@
           "slots": [
             {
               "name": "SEARCH_TERM",
-              "type": "AMAZON.SearchQuery"
+              "type": "SEARCH_TERM_TYPE"
             }
           ],
           "samples": [
@@ -48,8 +48,35 @@
           ]
         }
       ],
-      "types": []
+      "types": [
+        {
+          "name": "SEARCH_TERM_TYPE",
+          "values": [
+            {
+              "id": "channel",
+              "name": {
+                "value": "channel",
+                "synonyms": [
+                  "playlist",
+                  "play list"
+                ]
+              }
+            },
+            {
+              "id": "station",
+              "name": {
+                "value": "station",
+                "synonyms": [
+                  "song",
+                  "book",
+                  "audiobook",
+                  "audio book"
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
-  },
-  "version": "3"
+  }
 }
