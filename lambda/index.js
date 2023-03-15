@@ -11,6 +11,12 @@ const LOG_LEVEL = 0
 
 const Alexa = require('ask-sdk-core')
 
+const console_log = (...args) => {
+  if (LOG_LEVEL > 0) {
+    console.log(...args)
+  }
+}
+
 const getRequestData = (handlerInput) => {
   const reqType = Alexa.getRequestType(handlerInput.requestEnvelope)
   const reqName = (reqType === 'IntentRequest')
@@ -18,6 +24,40 @@ const getRequestData = (handlerInput) => {
     : null
 
   return [reqType, reqName]
+}
+
+const getRequestSearchTerm = (handlerInput, key_prefix) => {
+  const slots = handlerInput.requestEnvelope.request.intent.slots
+  let   value = null
+
+  if (key_prefix)
+    key_prefix = key_prefix.toUpperCase()
+
+  if (slots && (slots instanceof Object)) {
+    const log = {}
+    let slot
+    for (let key of slots) {
+      slot = slots[key]
+
+      if (!slot || !(slot instanceof Object) || !slot.value)
+        continue
+
+      key = key.toUpperCase()
+
+      if (key_prefix && (key.indexOf(key_prefix) !== 0))
+        continue
+
+      log[key] = slot.value
+
+      if (!value || (value.length < slot.value.length))
+        value = slot.value
+    }
+
+    if (value)
+      console_log('[search] slots:', log)
+  }
+
+  return value
 }
 
 const getRemoteData = (val) => new Promise((resolve, reject) => {
@@ -36,12 +76,6 @@ const getRemoteData = (val) => new Promise((resolve, reject) => {
   })
   request.on('error', (err) => reject(err))
 })
-
-const console_log = (...args) => {
-  if (LOG_LEVEL > 0) {
-    console.log(...args)
-  }
-}
 
 const intent_handler = {}
 
@@ -108,7 +142,7 @@ intent_handler['search'] = {
     )
   },
   async handle(handlerInput) {
-    const slotValue    = Alexa.getSlotValue(handlerInput.requestEnvelope, 'SEARCH_TERM')
+    const slotValue    = getRequestSearchTerm(handlerInput, 'SEARCH_TERM_')
     const remoteData   = await getRemoteData(`?search=${ encodeURIComponent(slotValue) }`)
     const track        = remoteData.track
     const outputSpeech = (remoteData.speech)

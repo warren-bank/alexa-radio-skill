@@ -35,16 +35,192 @@
           "name": "PlayMediaIntent",
           "slots": [
             {
-              "name": "SEARCH_TERM",
+              "name": "SEARCH_TERM_AMAZON_SEARCHQUERY",
               "type": "AMAZON.SearchQuery"
+            },{
+              "name": "SEARCH_TERM_AMAZON_ANIMAL",
+              "type": "AMAZON.Animal"
+            },{
+              "name": "SEARCH_TERM_AMAZON_ARTIST",
+              "type": "AMAZON.Artist"
+            },{
+              "name": "SEARCH_TERM_AMAZON_AUTHOR",
+              "type": "AMAZON.Author"
+            },{
+              "name": "SEARCH_TERM_AMAZON_BOOK",
+              "type": "AMAZON.Book"
+            },{
+              "name": "SEARCH_TERM_AMAZON_BOOKSERIES",
+              "type": "AMAZON.BookSeries"
+            },{
+              "name": "SEARCH_TERM_AMAZON_CITY",
+              "type": "AMAZON.City"
+            },{
+              "name": "SEARCH_TERM_AMAZON_COLOR",
+              "type": "AMAZON.Color"
+            },{
+              "name": "SEARCH_TERM_AMAZON_COMIC",
+              "type": "AMAZON.Comic"
+            },{
+              "name": "SEARCH_TERM_AMAZON_CORPORATION",
+              "type": "AMAZON.Corporation"
+            },{
+              "name": "SEARCH_TERM_AMAZON_COUNTRY",
+              "type": "AMAZON.Country"
+            },{
+              "name": "SEARCH_TERM_AMAZON_DAYOFWEEK",
+              "type": "AMAZON.DayOfWeek"
+            },{
+              "name": "SEARCH_TERM_AMAZON_DESSERT",
+              "type": "AMAZON.Dessert"
+            },{
+              "name": "SEARCH_TERM_AMAZON_DEVICETYPE",
+              "type": "AMAZON.DeviceType"
+            },{
+              "name": "SEARCH_TERM_AMAZON_DRINK",
+              "type": "AMAZON.Drink"
+            },{
+              "name": "SEARCH_TERM_AMAZON_EVENTTYPE",
+              "type": "AMAZON.EventType"
+            },{
+              "name": "SEARCH_TERM_AMAZON_FESTIVAL",
+              "type": "AMAZON.Festival"
+            },{
+              "name": "SEARCH_TERM_AMAZON_FICTIONALCHARACTER",
+              "type": "AMAZON.FictionalCharacter"
+            },{
+              "name": "SEARCH_TERM_AMAZON_FIRSTNAME",
+              "type": "AMAZON.FirstName"
+            },{
+              "name": "SEARCH_TERM_AMAZON_FOOD",
+              "type": "AMAZON.Food"
+            },{
+              "name": "SEARCH_TERM_AMAZON_GENRE",
+              "type": "AMAZON.Genre"
+            },{
+              "name": "SEARCH_TERM_AMAZON_LANGUAGE",
+              "type": "AMAZON.Language"
+            },{
+              "name": "SEARCH_TERM_AMAZON_LOCALBUSINESS",
+              "type": "AMAZON.LocalBusiness"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MONTH",
+              "type": "AMAZON.Month"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MOVIE",
+              "type": "AMAZON.Movie"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MOVIESERIES",
+              "type": "AMAZON.MovieSeries"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MUSICALBUM",
+              "type": "AMAZON.MusicAlbum"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MUSICEVENT",
+              "type": "AMAZON.MusicEvent"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MUSICGROUP",
+              "type": "AMAZON.MusicGroup"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MUSICIAN",
+              "type": "AMAZON.Musician"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MUSICPLAYLIST",
+              "type": "AMAZON.MusicPlaylist"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MUSICRECORDING",
+              "type": "AMAZON.MusicRecording"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MUSICVENUE",
+              "type": "AMAZON.MusicVenue"
+            },{
+              "name": "SEARCH_TERM_AMAZON_MUSICVIDEO",
+              "type": "AMAZON.MusicVideo"
+            },{
+              "name": "SEARCH_TERM_AMAZON_ORGANIZATION",
+              "type": "AMAZON.Organization"
+            },{
+              "name": "SEARCH_TERM_AMAZON_PERSON",
+              "type": "AMAZON.Person"
+            },{
+              "name": "SEARCH_TERM_AMAZON_PROFESSIONAL",
+              "type": "AMAZON.Professional"
+            },{
+              "name": "SEARCH_TERM_AMAZON_PROFESSIONALTYPE",
+              "type": "AMAZON.ProfessionalType"
+            },{
+              "name": "SEARCH_TERM_AMAZON_RADIOCHANNEL",
+              "type": "AMAZON.RadioChannel"
+            },{
+              "name": "SEARCH_TERM_AMAZON_REGION",
+              "type": "AMAZON.Region"
+            },{
+              "name": "SEARCH_TERM_AMAZON_ROOM",
+              "type": "AMAZON.Room"
+            },{
+              "name": "SEARCH_TERM_AMAZON_SPORT",
+              "type": "AMAZON.Sport"
+            },{
+              "name": "SEARCH_TERM_AMAZON_SPORTSTEAM",
+              "type": "AMAZON.SportsTeam"
+            },{
+              "name": "SEARCH_TERM_AMAZON_STREETNAME",
+              "type": "AMAZON.StreetName"
+            },{
+              "name": "SEARCH_TERM_AMAZON_TVSERIES",
+              "type": "AMAZON.TVSeries"
+            },{
+              "name": "SEARCH_TERM_AMAZON_VIDEOGAME",
+              "type": "AMAZON.VideoGame"
             }
           ],
           "samples": [
-            "play {SEARCH_TERM}",
-            "stream {SEARCH_TERM}",
-            "read {SEARCH_TERM}",
-            "find {SEARCH_TERM}",
-            "search for {SEARCH_TERM}"
+            "play {SEARCH_TERM_AMAZON_SEARCHQUERY}",
+            "play {SEARCH_TERM_AMAZON_ANIMAL}",
+            "play {SEARCH_TERM_AMAZON_ARTIST}",
+            "play {SEARCH_TERM_AMAZON_AUTHOR}",
+            "play {SEARCH_TERM_AMAZON_BOOK}",
+            "play {SEARCH_TERM_AMAZON_BOOKSERIES}",
+            "play {SEARCH_TERM_AMAZON_CITY}",
+            "play {SEARCH_TERM_AMAZON_COLOR}",
+            "play {SEARCH_TERM_AMAZON_COMIC}",
+            "play {SEARCH_TERM_AMAZON_CORPORATION}",
+            "play {SEARCH_TERM_AMAZON_COUNTRY}",
+            "play {SEARCH_TERM_AMAZON_DAYOFWEEK}",
+            "play {SEARCH_TERM_AMAZON_DESSERT}",
+            "play {SEARCH_TERM_AMAZON_DEVICETYPE}",
+            "play {SEARCH_TERM_AMAZON_DRINK}",
+            "play {SEARCH_TERM_AMAZON_EVENTTYPE}",
+            "play {SEARCH_TERM_AMAZON_FESTIVAL}",
+            "play {SEARCH_TERM_AMAZON_FICTIONALCHARACTER}",
+            "play {SEARCH_TERM_AMAZON_FIRSTNAME}",
+            "play {SEARCH_TERM_AMAZON_FOOD}",
+            "play {SEARCH_TERM_AMAZON_GENRE}",
+            "play {SEARCH_TERM_AMAZON_LANGUAGE}",
+            "play {SEARCH_TERM_AMAZON_LOCALBUSINESS}",
+            "play {SEARCH_TERM_AMAZON_MONTH}",
+            "play {SEARCH_TERM_AMAZON_MOVIE}",
+            "play {SEARCH_TERM_AMAZON_MOVIESERIES}",
+            "play {SEARCH_TERM_AMAZON_MUSICALBUM}",
+            "play {SEARCH_TERM_AMAZON_MUSICEVENT}",
+            "play {SEARCH_TERM_AMAZON_MUSICGROUP}",
+            "play {SEARCH_TERM_AMAZON_MUSICIAN}",
+            "play {SEARCH_TERM_AMAZON_MUSICPLAYLIST}",
+            "play {SEARCH_TERM_AMAZON_MUSICRECORDING}",
+            "play {SEARCH_TERM_AMAZON_MUSICVENUE}",
+            "play {SEARCH_TERM_AMAZON_MUSICVIDEO}",
+            "play {SEARCH_TERM_AMAZON_ORGANIZATION}",
+            "play {SEARCH_TERM_AMAZON_PERSON}",
+            "play {SEARCH_TERM_AMAZON_PROFESSIONAL}",
+            "play {SEARCH_TERM_AMAZON_PROFESSIONALTYPE}",
+            "play {SEARCH_TERM_AMAZON_RADIOCHANNEL}",
+            "play {SEARCH_TERM_AMAZON_REGION}",
+            "play {SEARCH_TERM_AMAZON_ROOM}",
+            "play {SEARCH_TERM_AMAZON_SPORT}",
+            "play {SEARCH_TERM_AMAZON_SPORTSTEAM}",
+            "play {SEARCH_TERM_AMAZON_STREETNAME}",
+            "play {SEARCH_TERM_AMAZON_TVSERIES}",
+            "play {SEARCH_TERM_AMAZON_VIDEOGAME}"
           ]
         }
       ],
