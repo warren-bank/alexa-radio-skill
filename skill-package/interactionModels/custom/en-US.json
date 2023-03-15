@@ -50,8 +50,7 @@
       ],
       "types": [
         {
-          "name": "SEARCH_TERM_TYPE",
-          "values": []
+          "name": "SEARCH_TERM_TYPE"
         }
       ]
     }
