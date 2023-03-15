@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "juke box",
+      "invocationName": "my juke box",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -36,7 +36,7 @@
           "slots": [
             {
               "name": "SEARCH_TERM",
-              "type": "AMAZON.SearchQuery"
+              "type": "SEARCH_TERM"
             }
           ],
           "samples": [
@@ -48,8 +48,12 @@
           ]
         }
       ],
-      "types": []
+      "types": [
+        {
+          "name": "SEARCH_TERM",
+          "values": []
+        }
+      ]
     }
-  },
-  "version": "3"
+  }
 }

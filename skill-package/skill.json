@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:location:IAM_CODE:function:aws_lambda_function_title"
+          "uri": ""
         },
         "interfaces": [
           {
@@ -14,7 +14,7 @@
     },
     "manifestVersion": "1.0",
     "publishingInformation": {
-      "category": "MUSIC_AND_AUDIO_ACCESSORIES",
+      "category": "STREAMING_SERVICE",
       "distributionCountries": [],
       "isAvailableWorldwide": true,
       "locales": {
