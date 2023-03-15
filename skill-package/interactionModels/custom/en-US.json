@@ -50,7 +50,31 @@
       ],
       "types": [
         {
-          "name": "SEARCH_TERM_TYPE"
+          "name": "SEARCH_TERM_TYPE",
+          "values": [
+            {
+              "id": "channel",
+              "name": {
+                "value": "channel",
+                "synonyms": [
+                  "playlist",
+                  "play list"
+                ]
+              }
+            },
+            {
+              "id": "station",
+              "name": {
+                "value": "station",
+                "synonyms": [
+                  "song",
+                  "book",
+                  "audiobook",
+                  "audio book"
+                ]
+              }
+            }
+          ]
         }
       ]
     }
